@@ -1,8 +1,21 @@
 defmodule Hubspot.HTTP do
   use HTTPoison.Base
 
-  @url Application.get_env(:hubspotex, :base_url)
+  def request(method, url, headers, body, params) do
+    options = params |> map_query
+    super(method, url, headers, body, options)
+  end
 
-  defp process_url("http" <> endpoint), do: "http" <> endpoint
-  defp process_url(endpoint), do: @url <> endpoint
+  defp map_query([]), do: []
+  defp map_query(query) do
+    [params: query]
+  end
+
+  defp process_request_body(body) do
+    body |> Poison.Encoder.encode("")
+  end
+
+  defp process_response_body(body) do
+    body |> Poison.decode
+  end
 end

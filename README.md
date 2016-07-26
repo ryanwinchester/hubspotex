@@ -3,10 +3,14 @@
 ## Examples
 
 ```elixir
-Hubspot.Contacts.all |> Hubspot.Request.send
+
+Hubspot.Contacts.all
+#=> %Hubspot.Request{body: "", endpoint: "/contacts/v1/lists/all/contacts/all", method: :get, query: []}
+
+Hubspot.Contacts.all |> Hubspot.request
 #=> {:ok, response}
 
-Hubspot.Contacts.all(["count": 10, "vidOffset": 100]) |> Hubspot.Request.send
+Hubspot.Contacts.all(["count": 10, "vidOffset": 100]) |> Hubspot.request
 #=> {:ok, response}
 ```
 

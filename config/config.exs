@@ -20,11 +20,12 @@ use Mix.Config
 #
 #     config :logger, level: :info
 #
-config :hubspotex, base_url:  "https://api.hubapi.com"
-config :hubspotex, api_key:   "demo"
+config :hubspotex, base_url: "https://api.hubapi.com"
+config :hubspotex, auth_method: "hapikey" # "hapikey" or "token"
+config :hubspotex, auth_key: "demo"
 config :hubspotex, portal_id: "62515"
-config :hubspotex, username:  "testapi@hubspot.com"
-config :hubspotex, password:  "HubSpot"
+config :hubspotex, username: "testapi@hubspot.com"
+config :hubspotex, password: "HubSpot"
 
 # It is also possible to import configuration files, relative to this
 # directory. For example, you can emulate configuration per environment

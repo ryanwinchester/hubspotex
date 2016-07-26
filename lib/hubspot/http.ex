@@ -1,9 +1,7 @@
 defmodule Hubspot.HTTP do
-  @url Application.get_env(:hubspotex, :base_url)
+  use HTTPoison.Base
 
-  def request(%Hubspot.Request{} = request) do
-    process_url(request.endpoint)
-  end
+  @url Application.get_env(:hubspotex, :base_url)
 
   defp process_url("http" <> endpoint), do: "http" <> endpoint
   defp process_url(endpoint), do: @url <> endpoint

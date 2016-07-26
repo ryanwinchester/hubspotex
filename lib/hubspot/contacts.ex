@@ -8,14 +8,14 @@ defmodule Hubspot.Contacts do
   ## Examples
       iex> Hubspot.Contacts.all()
       %Hubspot.Request{endpoint: "/contacts/v1/lists/all/contacts/all",
-        method: :get, query: nil, json: nil}
+        method: :get, query: [], body: ""}
 
-      iex> Hubspot.Contacts.all([{:count, 10}, {:vidOffset, 100}])
+      iex> Hubspot.Contacts.all(["count": 10, "vidOffset": 100])
       %Hubspot.Request{endpoint: "/contacts/v1/lists/all/contacts/all",
-        method: :get, query: [{:count, 10}, {:vidOffset, 100}], json: nil}
+        method: :get, query: ["count": 10, "vidOffset": 100], body: ""}
   """
   @spec all(list) :: %Hubspot.Request{}
-  def all(params \\ nil) do
+  def all(params \\ []) do
     %Request{
       endpoint: "/contacts/v1/lists/all/contacts/all",
       method: :get,
@@ -28,7 +28,7 @@ defmodule Hubspot.Contacts do
   ## Example
       iex> Hubspot.Contacts.get_by_email("test@hubspot.com")
       %Hubspot.Request{endpoint: "/contacts/v1/contact/email/test@hubspot.com/profile",
-        method: :get, query: nil, json: nil}
+        method: :get, query: [], body: ""}
   """
   @spec get_by_email(String.t) :: %Hubspot.Request{}
   def get_by_email(email) do
@@ -43,14 +43,14 @@ defmodule Hubspot.Contacts do
   ## Example
       iex> Hubspot.Contacts.create([properties: [name: "test", value: "test"]])
       %Hubspot.Request{endpoint: "/contacts/v1/contact",
-        method: :post, query: nil, json: [properties: [name: "test", value: "test"]]}
+        method: :post, query: [], body: [properties: [name: "test", value: "test"]]}
   """
   @spec create(list) :: %Hubspot.Request{}
   def create(properties) do
     %Request{
       endpoint: "/contacts/v1/contact",
       method: :post,
-      json: properties}
+      body: properties}
   end
 
   @doc """
@@ -59,14 +59,14 @@ defmodule Hubspot.Contacts do
   ## Example
       iex> Hubspot.Contacts.update(1234, [properties: [name: "first_name", value: "Fred"]])
       %Hubspot.Request{endpoint: "/contacts/v1/contact/vid/1234/profile",
-        method: :post, query: nil, json: [properties: [name: "first_name", value: "Fred"]]}
+        method: :post, query: [], body: [properties: [name: "first_name", value: "Fred"]]}
   """
   @spec update(integer, list) :: %Hubspot.Request{}
   def update(id, properties) do
     %Request{
       endpoint: "/contacts/v1/contact/vid/#{id}/profile",
       method: :post,
-      json: properties}
+      body: properties}
   end
 
   @doc """
@@ -75,14 +75,14 @@ defmodule Hubspot.Contacts do
   ## Example
       iex> Hubspot.Contacts.create_or_update("test@hubspot.com", [properties: [name: "first_name", value: "Fred"]])
       %Hubspot.Request{endpoint: "/contacts/v1/contact/createOrUpdate/email/test@hubspot.com",
-        method: :post, query: nil, json: [properties: [name: "first_name", value: "Fred"]]}
+        method: :post, query: [], body: [properties: [name: "first_name", value: "Fred"]]}
   """
   @spec create_or_update(String.t, list) :: %Hubspot.Request{}
-  def create_or_update(email, properties \\ nil) do
+  def create_or_update(email, properties \\ "") do
     %Request{
       endpoint: "/contacts/v1/contact/createOrUpdate/email/#{email}",
       method: :post,
-      json: properties}
+      body: properties}
   end
 
   @doc """
@@ -91,14 +91,14 @@ defmodule Hubspot.Contacts do
   ## Example
       iex> Hubspot.Contacts.create_or_update_batch([vid: [1234, 1235]])
       %Hubspot.Request{endpoint: "/contacts/v1/contact/batch",
-        method: :post, query: nil, json: [vid: [1234, 1235]]}
+        method: :post, query: [], body: [vid: [1234, 1235]]}
   """
   @spec create_or_update_batch(list) :: %Hubspot.Request{}
   def create_or_update_batch(contacts) do
     %Request{
       endpoint: "/contacts/v1/contact/batch",
       method: :post,
-      json: contacts}
+      body: contacts}
   end
 
   @doc """
@@ -107,7 +107,7 @@ defmodule Hubspot.Contacts do
   ## Example
       iex> Hubspot.Contacts.delete(1234)
       %Hubspot.Request{endpoint: "/contacts/v1/contact/vid/1234",
-        method: :delete, query: nil, json: nil}
+        method: :delete, query: [], body: ""}
   """
   @spec delete(integer) :: %Hubspot.Request{}
   def delete(id) do
@@ -124,10 +124,10 @@ defmodule Hubspot.Contacts do
   ## Example
       iex> Hubspot.Contacts.recent()
       %Hubspot.Request{endpoint: "/contacts/v1/lists/recently_updated/contacts/recent",
-        method: :get, query: nil, json: nil}
+        method: :get, query: [], body: ""}
   """
   @spec recent(list) :: %Hubspot.Request{}
-  def recent(params \\ nil) do
+  def recent(params \\ []) do
     %Request{
       endpoint: "/contacts/v1/lists/recently_updated/contacts/recent",
       method: :get,
@@ -140,7 +140,7 @@ defmodule Hubspot.Contacts do
   ## Example
       iex> Hubspot.Contacts.get_by_id(1234)
       %Hubspot.Request{endpoint: "/contacts/v1/contact/vid/1234/profile",
-        method: :get, query: nil, json: nil}
+        method: :get, query: [], body: ""}
   """
   @spec get_by_id(integer) :: %Hubspot.Request{}
   def get_by_id(id) do
@@ -159,7 +159,7 @@ defmodule Hubspot.Contacts do
   ## Example
       iex> Hubspot.Contacts.get_batch_by_ids([{:vid, 1234},{:vid, 4321}])
       %Hubspot.Request{endpoint: "/contacts/v1/contact/vids/batch",
-        method: :get, query: [{:vid, 1234},{:vid, 4321}], json: nil}
+        method: :get, query: [{:vid, 1234},{:vid, 4321}], body: ""}
   """
   @spec get_batch_by_ids(list) :: %Hubspot.Request{}
   def get_batch_by_ids(params) do
@@ -178,7 +178,7 @@ defmodule Hubspot.Contacts do
   ## Example
       iex> Hubspot.Contacts.get_batch_by_emails([{:email, "test@hubspot.com"},{:email, "test2@hubspot.com"}])
       %Hubspot.Request{endpoint: "/contacts/v1/contact/emails/batch",
-        method: :get, query: [{:email, "test@hubspot.com"},{:email, "test2@hubspot.com"}], json: nil}
+        method: :get, query: [{:email, "test@hubspot.com"},{:email, "test2@hubspot.com"}], body: ""}
   """
   @spec get_batch_by_emails(list) :: %Hubspot.Request{}
   def get_batch_by_emails(params) do
@@ -194,7 +194,7 @@ defmodule Hubspot.Contacts do
   ## Example
       iex> Hubspot.Contacts.get_by_token("1234")
       %Hubspot.Request{endpoint: "/contacts/v1/contact/utk/1234/profile",
-        method: :get, query: nil, json: nil}
+        method: :get, query: [], body: ""}
   """
   @spec get_by_token(String.t) :: %Hubspot.Request{}
   def get_by_token(utk) do
@@ -216,7 +216,7 @@ defmodule Hubspot.Contacts do
   ## Example
       iex> Hubspot.Contacts.get_batch_by_tokens([{:utk, 1234}, {:utk, 4523}])
       %Hubspot.Request{endpoint: "/contacts/v1/contact/utks/batch",
-        method: :get, query: [{:utk, 1234}, {:utk, 4523}], json: nil}
+        method: :get, query: [{:utk, 1234}, {:utk, 4523}], body: ""}
   """
   @spec get_batch_by_tokens(list) :: %Hubspot.Request{}
   def get_batch_by_tokens(params) do
@@ -238,7 +238,7 @@ defmodule Hubspot.Contacts do
   ## Example
       iex> Hubspot.Contacts.search({:q, "test@hubapi.com"})
       %Hubspot.Request{endpoint: "/contacts/v1/search/query",
-        method: :get, query: {:q, "test@hubapi.com"}, json: nil}
+        method: :get, query: {:q, "test@hubapi.com"}, body: ""}
   """
   @spec search(list) :: %Hubspot.Request{}
   def search(query) do
@@ -254,7 +254,7 @@ defmodule Hubspot.Contacts do
   ## Example
       iex> Hubspot.Contacts.statistics()
       %Hubspot.Request{endpoint: "/contacts/v1/contacts/statistics",
-        method: :get, query: nil, json: nil}
+        method: :get, query: [], body: ""}
   """
   @spec statistics() :: %Hubspot.Request{}
   def statistics() do

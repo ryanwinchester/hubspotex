@@ -1,4 +1,6 @@
 /_build
+/config/dev.exs
+/config/test.exs
 /cover
 /deps
 erl_crash.dump

@@ -4,8 +4,8 @@
 
 ## Examples
 
-    iex> Hubspot.Contacts.all |> Hubspot.Client.request
-    #=> {:ok, data}
+    iex> Hubspot.Contacts.all |> Hubspot.HTTP.request
+    #=> {:ok, response}
 
 ## Installation
 

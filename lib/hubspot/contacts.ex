@@ -1,6 +1,4 @@
 defmodule Hubspot.Contacts do
-  alias Hubspot.Request
-
   @doc """
   Returns a struct that is used in `Hubspot.Client` for
   getting all contacts from Hubspot.
@@ -16,7 +14,7 @@ defmodule Hubspot.Contacts do
   """
   @spec all(list) :: %Hubspot.Request{}
   def all(params \\ []) do
-    %Request{
+    %Hubspot.Request{
       endpoint: "/contacts/v1/lists/all/contacts/all",
       method: :get,
       query: params}
@@ -32,7 +30,7 @@ defmodule Hubspot.Contacts do
   """
   @spec get_by_email(String.t) :: %Hubspot.Request{}
   def get_by_email(email) do
-    %Request{
+    %Hubspot.Request{
       endpoint: "/contacts/v1/contact/email/#{email}/profile",
       method: :get}
   end
@@ -47,7 +45,7 @@ defmodule Hubspot.Contacts do
   """
   @spec create(list) :: %Hubspot.Request{}
   def create(properties) do
-    %Request{
+    %Hubspot.Request{
       endpoint: "/contacts/v1/contact",
       method: :post,
       body: properties}
@@ -63,7 +61,7 @@ defmodule Hubspot.Contacts do
   """
   @spec update(integer, list) :: %Hubspot.Request{}
   def update(id, properties) do
-    %Request{
+    %Hubspot.Request{
       endpoint: "/contacts/v1/contact/vid/#{id}/profile",
       method: :post,
       body: properties}
@@ -79,7 +77,7 @@ defmodule Hubspot.Contacts do
   """
   @spec create_or_update(String.t, list) :: %Hubspot.Request{}
   def create_or_update(email, properties \\ "") do
-    %Request{
+    %Hubspot.Request{
       endpoint: "/contacts/v1/contact/createOrUpdate/email/#{email}",
       method: :post,
       body: properties}
@@ -95,7 +93,7 @@ defmodule Hubspot.Contacts do
   """
   @spec create_or_update_batch(list) :: %Hubspot.Request{}
   def create_or_update_batch(contacts) do
-    %Request{
+    %Hubspot.Request{
       endpoint: "/contacts/v1/contact/batch",
       method: :post,
       body: contacts}
@@ -111,7 +109,7 @@ defmodule Hubspot.Contacts do
   """
   @spec delete(integer) :: %Hubspot.Request{}
   def delete(id) do
-    %Request{
+    %Hubspot.Request{
       endpoint: "/contacts/v1/contact/vid/#{id}",
       method: :delete}
   end
@@ -128,7 +126,7 @@ defmodule Hubspot.Contacts do
   """
   @spec recent(list) :: %Hubspot.Request{}
   def recent(params \\ []) do
-    %Request{
+    %Hubspot.Request{
       endpoint: "/contacts/v1/lists/recently_updated/contacts/recent",
       method: :get,
       query: params}
@@ -144,7 +142,7 @@ defmodule Hubspot.Contacts do
   """
   @spec get_by_id(integer) :: %Hubspot.Request{}
   def get_by_id(id) do
-    %Request{
+    %Hubspot.Request{
       endpoint: "/contacts/v1/contact/vid/#{id}/profile",
       method: :get}
   end
@@ -163,7 +161,7 @@ defmodule Hubspot.Contacts do
   """
   @spec get_batch_by_ids(list) :: %Hubspot.Request{}
   def get_batch_by_ids(params) do
-    %Request{
+    %Hubspot.Request{
       endpoint: "/contacts/v1/contact/vids/batch",
       method: :get,
       query: params}
@@ -182,7 +180,7 @@ defmodule Hubspot.Contacts do
   """
   @spec get_batch_by_emails(list) :: %Hubspot.Request{}
   def get_batch_by_emails(params) do
-    %Request{
+    %Hubspot.Request{
       endpoint: "/contacts/v1/contact/emails/batch",
       method: :get,
       query: params}
@@ -198,7 +196,7 @@ defmodule Hubspot.Contacts do
   """
   @spec get_by_token(String.t) :: %Hubspot.Request{}
   def get_by_token(utk) do
-    %Request{
+    %Hubspot.Request{
       endpoint: "/contacts/v1/contact/utk/#{utk}/profile",
       method: :get}
   end
@@ -220,7 +218,7 @@ defmodule Hubspot.Contacts do
   """
   @spec get_batch_by_tokens(list) :: %Hubspot.Request{}
   def get_batch_by_tokens(params) do
-    %Request{
+    %Hubspot.Request{
       endpoint: "/contacts/v1/contact/utks/batch",
       method: :get,
       query: params}
@@ -242,7 +240,7 @@ defmodule Hubspot.Contacts do
   """
   @spec search(list) :: %Hubspot.Request{}
   def search(query) do
-    %Request{
+    %Hubspot.Request{
       endpoint: "/contacts/v1/search/query",
       method: :get,
       query: query}
@@ -258,7 +256,7 @@ defmodule Hubspot.Contacts do
   """
   @spec statistics() :: %Hubspot.Request{}
   def statistics() do
-    %Request{
+    %Hubspot.Request{
       endpoint: "/contacts/v1/contacts/statistics",
       method: :get}
   end

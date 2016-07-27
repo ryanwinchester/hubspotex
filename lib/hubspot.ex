@@ -1,15 +1,15 @@
 defmodule Hubspot do
-  alias Hubspot.HTTP
+  alias Hubspot.HTTP.Client
 
   @url Application.get_env(:hubspotex, :base_url)
 
   @auth {Application.get_env(:hubspotex, :auth_method),
          Application.get_env(:hubspotex, :auth_key)}
 
-  def request(%Hubspot.Request{} = request) do
+  def request(%Hubspot.HTTP.Request{} = request) do
     url = request.endpoint |> process_url
     params = request.query |> add_auth
-    HTTP.request(request.method, url, request.body, [], params)
+    Client.request(request.method, url, request.body, [], params)
   end
 
   defp process_url("http" <> endpoint), do: "http" <> endpoint

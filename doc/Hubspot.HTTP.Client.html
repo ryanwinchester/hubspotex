@@ -5,10 +5,10 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="generator" content="ExDoc v0.13.0">
-    <title>Hubspot.HTTP – hubspotex v0.0.2</title>
+    <title>Hubspot.HTTP.Client – hubspotex v0.0.3</title>
     <link rel="stylesheet" href="dist/app-9c1e3d5aa2.css" />
     
-      <link rel="canonical" href="https://hexdocs.pm/hubspotex/Hubspot.HTTP.html" />
+      <link rel="canonical" href="https://hexdocs.pm/hubspotex/Hubspot.HTTP.Client.html" />
     
     <script src="dist/sidebar_items.js"></script>
   </head>
@@ -28,7 +28,7 @@
         hubspotex
       </h1>
       <h2 class="sidebar-projectVersion">
-        v0.0.2
+        v0.0.3
       </h2>
     </div>
     
@@ -61,8 +61,8 @@
 
 
       <h1>
-        <small class="visible-xs">hubspotex v0.0.2</small>
-        Hubspot.HTTP
+        <small class="visible-xs">hubspotex v0.0.3</small>
+        Hubspot.HTTP.Client
         
         
       </h1>
@@ -739,7 +739,6 @@ failure.</p>
   
   <section class="docstring">
     <p>Issues an HTTP request with the given method to the given url.</p>
-<p>This function is usually used indirectly by <a href="#get/3"><code class="inline">get/3</code></a>, <a href="#post/4"><code class="inline">post/4</code></a>, <a href="#put/4"><code class="inline">put/4</code></a>, etc</p>
 <p>Args:</p>
 <ul>
 <li><code class="inline">method</code> - HTTP method as an atom (<code class="inline">:get</code>, <code class="inline">:head</code>, <code class="inline">:post</code>, <code class="inline">:put</code>,
@@ -763,33 +762,8 @@ failure.</p>
 <li><code class="inline">{:file, &quot;/path/to/file&quot;}</code> - send a file
 </li>
 </ul>
-<p>Options:</p>
-<ul>
-<li><code class="inline">:timeout</code> - timeout to establish a connection, in milliseconds. Default is 8000
-</li>
-<li><code class="inline">:recv_timeout</code> - timeout used when receiving a connection. Default is 5000
-</li>
-<li><code class="inline">:stream_to</code> - a PID to stream the response to
-</li>
-<li><code class="inline">:proxy</code> - a proxy to be used for the request; it can be a regular url
-or a <code class="inline">{Host, Proxy}</code> tuple
-</li>
-<li><code class="inline">:proxy_auth</code> - proxy authentication <code class="inline">{User, Password}</code> tuple
-</li>
-<li><code class="inline">:ssl</code> - SSL options supported by the <code class="inline">ssl</code> erlang module
-</li>
-<li><code class="inline">:follow_redirect</code> - a boolean that causes redirects to be followed
-</li>
-<li><code class="inline">:max_redirect</code> - an integer denoting the maximum number of redirects to follow
-</li>
-<li><code class="inline">:params</code> - an enumerable consisting of two-item tuples that will be appended to the url as query string parameters
-</li>
-</ul>
-<p>Timeouts can be an integer or <code class="inline">:infinity</code></p>
-<p>This function returns <code class="inline">{:ok, response}</code> or <code class="inline">{:ok, async_response}</code> if the
-request is successful, <code class="inline">{:error, reason}</code> otherwise.</p>
 <h2>Examples</h2>
-<pre><code class="elixir">request(:post, &quot;https://my.website.com&quot;, &quot;{\&quot;foo\&quot;: 3}&quot;, [{&quot;Accept&quot;, &quot;application/json&quot;}])</code></pre>
+<pre><code class="elixir">    request(:post, &quot;https://my.website.com&quot;, &quot;{&quot;foo&quot;: 3}&quot;, [{&quot;Accept&quot;, &quot;application/json&quot;}])</code></pre>
 
   </section>
 </div>

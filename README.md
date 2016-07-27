@@ -1,7 +1,7 @@
 # Hubspot API wrapper in Elixir
 
 [![Hex.pm](https://img.shields.io/hexpm/v/hubspotex.svg?maxAge=2592000)](https://hex.pm/packages/hubspotex)
- [![Hex.pm](https://img.shields.io/hexpm/l/hubspotex.svg?maxAge=2592000)](https://hex.pm/packages/hubspotex) 
+ [![Hex.pm](https://img.shields.io/hexpm/l/hubspotex.svg?maxAge=2592000)](https://hex.pm/packages/hubspotex)
  [![Hex.pm](https://img.shields.io/hexpm/dt/hubspotex.svg?maxAge=2592000)](https://hex.pm/packages/hubspotex)
  [![Build Status](https://travis-ci.org/ryanwinchester/hubspotex.svg?branch=master)](https://travis-ci.org/ryanwinchester/hubspotex)
 
@@ -13,12 +13,13 @@
 ```elixir
 
 Hubspot.Contacts.all
-#=> %Hubspot.Request{body: "", endpoint: "/contacts/v1/lists/all/contacts/all", method: :get, query: []}
+#=> %Hubspot.HTTP.Request{endpoint: "/contacts/v1/lists/all/contacts/all",
+#     method: :get, query: [], body: ""}
 
 Hubspot.Contacts.all |> Hubspot.request
 #=> {:ok, response}
 
-Hubspot.Contacts.all(["count": 10, "vidOffset": 100]) |> Hubspot.request
+Hubspot.Contacts.all([count: 10, vidOffset: 100]) |> Hubspot.request
 #=> {:ok, response}
 ```
 
@@ -30,6 +31,6 @@ If [available in Hex](https://hex.pm/docs/publish), the package can be installed
 
   ```elixir
   def deps do
-    [{:hubspotex, "~> 0.0.2"}]
+    [{:hubspotex, "~> 0.0.3"}]
   end
   ```

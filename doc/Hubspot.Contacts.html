@@ -5,7 +5,7 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="generator" content="ExDoc v0.13.0">
-    <title>Hubspot.Contacts – hubspotex v0.0.2</title>
+    <title>Hubspot.Contacts – hubspotex v0.0.3</title>
     <link rel="stylesheet" href="dist/app-9c1e3d5aa2.css" />
     
       <link rel="canonical" href="https://hexdocs.pm/hubspotex/Hubspot.Contacts.html" />
@@ -28,7 +28,7 @@
         hubspotex
       </h1>
       <h2 class="sidebar-projectVersion">
-        v0.0.2
+        v0.0.3
       </h2>
     </div>
     
@@ -61,7 +61,7 @@
 
 
       <h1>
-        <small class="visible-xs">hubspotex v0.0.2</small>
+        <small class="visible-xs">hubspotex v0.0.3</small>
         Hubspot.Contacts
         
         
@@ -259,7 +259,7 @@ those contacts by the contact’s email address or name</p>
       <h4 class="specs-title">Specs</h4>
       <div class="specs-list">
         
-          <pre><code class="elixir">all(list) :: %Hubspot.Request{body: term, endpoint: term, method: term, query: term}</code></pre>
+          <pre><code class="elixir">all(list) :: %Hubspot.HTTP.Request{body: term, endpoint: term, method: term, query: term}</code></pre>
         
       </div>
     </div>
@@ -269,11 +269,11 @@ those contacts by the contact’s email address or name</p>
 getting all contacts from Hubspot.</p>
 <h2>Examples</h2>
 <pre><code class="iex elixir">iex&gt; Hubspot.Contacts.all()
-%Hubspot.Request{endpoint: &quot;/contacts/v1/lists/all/contacts/all&quot;,
+%Hubspot.HTTP.Request{endpoint: &quot;/contacts/v1/lists/all/contacts/all&quot;,
   method: :get, query: [], body: &quot;&quot;}
 
-iex&gt; Hubspot.Contacts.all([&quot;count&quot;: 10, &quot;vidOffset&quot;: 100])
-%Hubspot.Request{endpoint: &quot;/contacts/v1/lists/all/contacts/all&quot;,
+iex&gt; Hubspot.Contacts.all([count: 10, vidOffset: 100])
+%Hubspot.HTTP.Request{endpoint: &quot;/contacts/v1/lists/all/contacts/all&quot;,
   method: :get, query: [&quot;count&quot;: 10, &quot;vidOffset&quot;: 100], body: &quot;&quot;}</code></pre>
 
   </section>
@@ -292,7 +292,7 @@ iex&gt; Hubspot.Contacts.all([&quot;count&quot;: 10, &quot;vidOffset&quot;: 100]
       <h4 class="specs-title">Specs</h4>
       <div class="specs-list">
         
-          <pre><code class="elixir">create(list) :: %Hubspot.Request{body: term, endpoint: term, method: term, query: term}</code></pre>
+          <pre><code class="elixir">create(list) :: %Hubspot.HTTP.Request{body: term, endpoint: term, method: term, query: term}</code></pre>
         
       </div>
     </div>
@@ -301,7 +301,7 @@ iex&gt; Hubspot.Contacts.all([&quot;count&quot;: 10, &quot;vidOffset&quot;: 100]
     <p>Get a contact matching the email.</p>
 <h2>Example</h2>
 <pre><code class="iex elixir">iex&gt; Hubspot.Contacts.create([properties: [name: &quot;test&quot;, value: &quot;test&quot;]])
-%Hubspot.Request{endpoint: &quot;/contacts/v1/contact&quot;,
+%Hubspot.HTTP.Request{endpoint: &quot;/contacts/v1/contact&quot;,
   method: :post, query: [], body: [properties: [name: &quot;test&quot;, value: &quot;test&quot;]]}</code></pre>
 
   </section>
@@ -320,7 +320,7 @@ iex&gt; Hubspot.Contacts.all([&quot;count&quot;: 10, &quot;vidOffset&quot;: 100]
       <h4 class="specs-title">Specs</h4>
       <div class="specs-list">
         
-          <pre><code class="elixir">create_or_update(<a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>, list) :: %Hubspot.Request{body: term, endpoint: term, method: term, query: term}</code></pre>
+          <pre><code class="elixir">create_or_update(<a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>, list) :: %Hubspot.HTTP.Request{body: term, endpoint: term, method: term, query: term}</code></pre>
         
       </div>
     </div>
@@ -329,7 +329,7 @@ iex&gt; Hubspot.Contacts.all([&quot;count&quot;: 10, &quot;vidOffset&quot;: 100]
     <p>Get a contact matching the email.</p>
 <h2>Example</h2>
 <pre><code class="iex elixir">iex&gt; Hubspot.Contacts.create_or_update(&quot;test@hubspot.com&quot;, [properties: [name: &quot;first_name&quot;, value: &quot;Fred&quot;]])
-%Hubspot.Request{endpoint: &quot;/contacts/v1/contact/createOrUpdate/email/test@hubspot.com&quot;,
+%Hubspot.HTTP.Request{endpoint: &quot;/contacts/v1/contact/createOrUpdate/email/test@hubspot.com&quot;,
   method: :post, query: [], body: [properties: [name: &quot;first_name&quot;, value: &quot;Fred&quot;]]}</code></pre>
 
   </section>
@@ -348,7 +348,7 @@ iex&gt; Hubspot.Contacts.all([&quot;count&quot;: 10, &quot;vidOffset&quot;: 100]
       <h4 class="specs-title">Specs</h4>
       <div class="specs-list">
         
-          <pre><code class="elixir">create_or_update_batch(list) :: %Hubspot.Request{body: term, endpoint: term, method: term, query: term}</code></pre>
+          <pre><code class="elixir">create_or_update_batch(list) :: %Hubspot.HTTP.Request{body: term, endpoint: term, method: term, query: term}</code></pre>
         
       </div>
     </div>
@@ -357,7 +357,7 @@ iex&gt; Hubspot.Contacts.all([&quot;count&quot;: 10, &quot;vidOffset&quot;: 100]
     <p>Get a contact matching the email.</p>
 <h2>Example</h2>
 <pre><code class="iex elixir">iex&gt; Hubspot.Contacts.create_or_update_batch([vid: [1234, 1235]])
-%Hubspot.Request{endpoint: &quot;/contacts/v1/contact/batch&quot;,
+%Hubspot.HTTP.Request{endpoint: &quot;/contacts/v1/contact/batch&quot;,
   method: :post, query: [], body: [vid: [1234, 1235]]}</code></pre>
 
   </section>
@@ -376,7 +376,7 @@ iex&gt; Hubspot.Contacts.all([&quot;count&quot;: 10, &quot;vidOffset&quot;: 100]
       <h4 class="specs-title">Specs</h4>
       <div class="specs-list">
         
-          <pre><code class="elixir">delete(integer) :: %Hubspot.Request{body: term, endpoint: term, method: term, query: term}</code></pre>
+          <pre><code class="elixir">delete(integer) :: %Hubspot.HTTP.Request{body: term, endpoint: term, method: term, query: term}</code></pre>
         
       </div>
     </div>
@@ -385,7 +385,7 @@ iex&gt; Hubspot.Contacts.all([&quot;count&quot;: 10, &quot;vidOffset&quot;: 100]
     <p>Get a contact matching the email.</p>
 <h2>Example</h2>
 <pre><code class="iex elixir">iex&gt; Hubspot.Contacts.delete(1234)
-%Hubspot.Request{endpoint: &quot;/contacts/v1/contact/vid/1234&quot;,
+%Hubspot.HTTP.Request{endpoint: &quot;/contacts/v1/contact/vid/1234&quot;,
   method: :delete, query: [], body: &quot;&quot;}</code></pre>
 
   </section>
@@ -404,7 +404,7 @@ iex&gt; Hubspot.Contacts.all([&quot;count&quot;: 10, &quot;vidOffset&quot;: 100]
       <h4 class="specs-title">Specs</h4>
       <div class="specs-list">
         
-          <pre><code class="elixir">get_batch_by_emails(list) :: %Hubspot.Request{body: term, endpoint: term, method: term, query: term}</code></pre>
+          <pre><code class="elixir">get_batch_by_emails(list) :: %Hubspot.HTTP.Request{body: term, endpoint: term, method: term, query: term}</code></pre>
         
       </div>
     </div>
@@ -415,7 +415,7 @@ iex&gt; Hubspot.Contacts.all([&quot;count&quot;: 10, &quot;vidOffset&quot;: 100]
 endpoint accepts many query parameters that allow for customization based on a variety of integration use cases.</p>
 <h2>Example</h2>
 <pre><code class="iex elixir">iex&gt; Hubspot.Contacts.get_batch_by_emails([{:email, &quot;test@hubspot.com&quot;},{:email, &quot;test2@hubspot.com&quot;}])
-%Hubspot.Request{endpoint: &quot;/contacts/v1/contact/emails/batch&quot;,
+%Hubspot.HTTP.Request{endpoint: &quot;/contacts/v1/contact/emails/batch&quot;,
   method: :get, query: [{:email, &quot;test@hubspot.com&quot;},{:email, &quot;test2@hubspot.com&quot;}], body: &quot;&quot;}</code></pre>
 
   </section>
@@ -434,7 +434,7 @@ endpoint accepts many query parameters that allow for customization based on a v
       <h4 class="specs-title">Specs</h4>
       <div class="specs-list">
         
-          <pre><code class="elixir">get_batch_by_ids(list) :: %Hubspot.Request{body: term, endpoint: term, method: term, query: term}</code></pre>
+          <pre><code class="elixir">get_batch_by_ids(list) :: %Hubspot.HTTP.Request{body: term, endpoint: term, method: term, query: term}</code></pre>
         
       </div>
     </div>
@@ -446,7 +446,7 @@ is stored in a field called ‘vid’ which stands for ‘visitor ID’.</p>
 endpoint accepts many query parameters that allow for customization based on a variety of integration use cases.</p>
 <h2>Example</h2>
 <pre><code class="iex elixir">iex&gt; Hubspot.Contacts.get_batch_by_ids([{:vid, 1234},{:vid, 4321}])
-%Hubspot.Request{endpoint: &quot;/contacts/v1/contact/vids/batch&quot;,
+%Hubspot.HTTP.Request{endpoint: &quot;/contacts/v1/contact/vids/batch&quot;,
   method: :get, query: [{:vid, 1234},{:vid, 4321}], body: &quot;&quot;}</code></pre>
 
   </section>
@@ -465,7 +465,7 @@ endpoint accepts many query parameters that allow for customization based on a v
       <h4 class="specs-title">Specs</h4>
       <div class="specs-list">
         
-          <pre><code class="elixir">get_batch_by_tokens(list) :: %Hubspot.Request{body: term, endpoint: term, method: term, query: term}</code></pre>
+          <pre><code class="elixir">get_batch_by_tokens(list) :: %Hubspot.HTTP.Request{body: term, endpoint: term, method: term, query: term}</code></pre>
         
       </div>
     </div>
@@ -479,7 +479,7 @@ integration use cases.</p>
 you’ll need to spin up a proxy server to interact with the API.</p>
 <h2>Example</h2>
 <pre><code class="iex elixir">iex&gt; Hubspot.Contacts.get_batch_by_tokens([{:utk, 1234}, {:utk, 4523}])
-%Hubspot.Request{endpoint: &quot;/contacts/v1/contact/utks/batch&quot;,
+%Hubspot.HTTP.Request{endpoint: &quot;/contacts/v1/contact/utks/batch&quot;,
   method: :get, query: [{:utk, 1234}, {:utk, 4523}], body: &quot;&quot;}</code></pre>
 
   </section>
@@ -498,7 +498,7 @@ you’ll need to spin up a proxy server to interact with the API.</p>
       <h4 class="specs-title">Specs</h4>
       <div class="specs-list">
         
-          <pre><code class="elixir">get_by_email(<a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>) :: %Hubspot.Request{body: term, endpoint: term, method: term, query: term}</code></pre>
+          <pre><code class="elixir">get_by_email(<a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>) :: %Hubspot.HTTP.Request{body: term, endpoint: term, method: term, query: term}</code></pre>
         
       </div>
     </div>
@@ -507,7 +507,7 @@ you’ll need to spin up a proxy server to interact with the API.</p>
     <p>Get a contact matching the email.</p>
 <h2>Example</h2>
 <pre><code class="iex elixir">iex&gt; Hubspot.Contacts.get_by_email(&quot;test@hubspot.com&quot;)
-%Hubspot.Request{endpoint: &quot;/contacts/v1/contact/email/test@hubspot.com/profile&quot;,
+%Hubspot.HTTP.Request{endpoint: &quot;/contacts/v1/contact/email/test@hubspot.com/profile&quot;,
   method: :get, query: [], body: &quot;&quot;}</code></pre>
 
   </section>
@@ -526,7 +526,7 @@ you’ll need to spin up a proxy server to interact with the API.</p>
       <h4 class="specs-title">Specs</h4>
       <div class="specs-list">
         
-          <pre><code class="elixir">get_by_id(integer) :: %Hubspot.Request{body: term, endpoint: term, method: term, query: term}</code></pre>
+          <pre><code class="elixir">get_by_id(integer) :: %Hubspot.HTTP.Request{body: term, endpoint: term, method: term, query: term}</code></pre>
         
       </div>
     </div>
@@ -535,7 +535,7 @@ you’ll need to spin up a proxy server to interact with the API.</p>
     <p>Get a contact matching the email.</p>
 <h2>Example</h2>
 <pre><code class="iex elixir">iex&gt; Hubspot.Contacts.get_by_id(1234)
-%Hubspot.Request{endpoint: &quot;/contacts/v1/contact/vid/1234/profile&quot;,
+%Hubspot.HTTP.Request{endpoint: &quot;/contacts/v1/contact/vid/1234/profile&quot;,
   method: :get, query: [], body: &quot;&quot;}</code></pre>
 
   </section>
@@ -554,7 +554,7 @@ you’ll need to spin up a proxy server to interact with the API.</p>
       <h4 class="specs-title">Specs</h4>
       <div class="specs-list">
         
-          <pre><code class="elixir">get_by_token(<a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>) :: %Hubspot.Request{body: term, endpoint: term, method: term, query: term}</code></pre>
+          <pre><code class="elixir">get_by_token(<a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>) :: %Hubspot.HTTP.Request{body: term, endpoint: term, method: term, query: term}</code></pre>
         
       </div>
     </div>
@@ -563,7 +563,7 @@ you’ll need to spin up a proxy server to interact with the API.</p>
     <p>Get a contact matching the token.</p>
 <h2>Example</h2>
 <pre><code class="iex elixir">iex&gt; Hubspot.Contacts.get_by_token(&quot;1234&quot;)
-%Hubspot.Request{endpoint: &quot;/contacts/v1/contact/utk/1234/profile&quot;,
+%Hubspot.HTTP.Request{endpoint: &quot;/contacts/v1/contact/utk/1234/profile&quot;,
   method: :get, query: [], body: &quot;&quot;}</code></pre>
 
   </section>
@@ -582,7 +582,7 @@ you’ll need to spin up a proxy server to interact with the API.</p>
       <h4 class="specs-title">Specs</h4>
       <div class="specs-list">
         
-          <pre><code class="elixir">recent(list) :: %Hubspot.Request{body: term, endpoint: term, method: term, query: term}</code></pre>
+          <pre><code class="elixir">recent(list) :: %Hubspot.HTTP.Request{body: term, endpoint: term, method: term, query: term}</code></pre>
         
       </div>
     </div>
@@ -593,7 +593,7 @@ A paginated list of contacts will be returned to you, with a maximum of 100 cont
 the “count” parameter. The endpoint only scrolls back in time 30 days.</p>
 <h2>Example</h2>
 <pre><code class="iex elixir">iex&gt; Hubspot.Contacts.recent()
-%Hubspot.Request{endpoint: &quot;/contacts/v1/lists/recently_updated/contacts/recent&quot;,
+%Hubspot.HTTP.Request{endpoint: &quot;/contacts/v1/lists/recently_updated/contacts/recent&quot;,
   method: :get, query: [], body: &quot;&quot;}</code></pre>
 
   </section>
@@ -612,7 +612,7 @@ the “count” parameter. The endpoint only scrolls back in time 30 days.</p>
       <h4 class="specs-title">Specs</h4>
       <div class="specs-list">
         
-          <pre><code class="elixir">search(list) :: %Hubspot.Request{body: term, endpoint: term, method: term, query: term}</code></pre>
+          <pre><code class="elixir">search(list) :: %Hubspot.HTTP.Request{body: term, endpoint: term, method: term, query: term}</code></pre>
         
       </div>
     </div>
@@ -626,7 +626,7 @@ return is the contact ID (vid) that you can then use to look up much
 more data about that particular contact by its ID.</p>
 <h2>Example</h2>
 <pre><code class="iex elixir">iex&gt; Hubspot.Contacts.search({:q, &quot;test@hubapi.com&quot;})
-%Hubspot.Request{endpoint: &quot;/contacts/v1/search/query&quot;,
+%Hubspot.HTTP.Request{endpoint: &quot;/contacts/v1/search/query&quot;,
   method: :get, query: {:q, &quot;test@hubapi.com&quot;}, body: &quot;&quot;}</code></pre>
 
   </section>
@@ -645,7 +645,7 @@ more data about that particular contact by its ID.</p>
       <h4 class="specs-title">Specs</h4>
       <div class="specs-list">
         
-          <pre><code class="elixir">statistics :: %Hubspot.Request{body: term, endpoint: term, method: term, query: term}</code></pre>
+          <pre><code class="elixir">statistics :: %Hubspot.HTTP.Request{body: term, endpoint: term, method: term, query: term}</code></pre>
         
       </div>
     </div>
@@ -654,7 +654,7 @@ more data about that particular contact by its ID.</p>
     <p>Get a contact matching the email.</p>
 <h2>Example</h2>
 <pre><code class="iex elixir">iex&gt; Hubspot.Contacts.statistics()
-%Hubspot.Request{endpoint: &quot;/contacts/v1/contacts/statistics&quot;,
+%Hubspot.HTTP.Request{endpoint: &quot;/contacts/v1/contacts/statistics&quot;,
   method: :get, query: [], body: &quot;&quot;}</code></pre>
 
   </section>
@@ -673,7 +673,7 @@ more data about that particular contact by its ID.</p>
       <h4 class="specs-title">Specs</h4>
       <div class="specs-list">
         
-          <pre><code class="elixir">update(integer, list) :: %Hubspot.Request{body: term, endpoint: term, method: term, query: term}</code></pre>
+          <pre><code class="elixir">update(integer, list) :: %Hubspot.HTTP.Request{body: term, endpoint: term, method: term, query: term}</code></pre>
         
       </div>
     </div>
@@ -682,7 +682,7 @@ more data about that particular contact by its ID.</p>
     <p>Get a contact matching the email.</p>
 <h2>Example</h2>
 <pre><code class="iex elixir">iex&gt; Hubspot.Contacts.update(1234, [properties: [name: &quot;first_name&quot;, value: &quot;Fred&quot;]])
-%Hubspot.Request{endpoint: &quot;/contacts/v1/contact/vid/1234/profile&quot;,
+%Hubspot.HTTP.Request{endpoint: &quot;/contacts/v1/contact/vid/1234/profile&quot;,
   method: :post, query: [], body: [properties: [name: &quot;first_name&quot;, value: &quot;Fred&quot;]]}</code></pre>
 
   </section>

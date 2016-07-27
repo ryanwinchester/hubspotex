@@ -3,4 +3,5 @@ defmodule DocTest do
 
   doctest Hubspot.Contacts
   doctest Hubspot.ContactProperties
+  doctest Hubspot.Forms
 end

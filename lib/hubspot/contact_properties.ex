@@ -10,12 +10,12 @@ defmodule Hubspot.ContactProperties do
   ## Example
 
       iex> Hubspot.ContactProperties.all
-      %Hubspot.Request{endpoint: "/contacts/v2/properties",
+      %Hubspot.HTTP.Request{endpoint: "/contacts/v2/properties",
         method: :get, query: [], body: ""}
   """
-  @spec all() :: %Hubspot.Request{}
+  @spec all() :: %Hubspot.HTTP.Request{}
   def all() do
-    %Hubspot.Request{
+    %Hubspot.HTTP.Request{
       endpoint: "/contacts/v2/properties",
       method: :get}
   end
@@ -30,12 +30,12 @@ defmodule Hubspot.ContactProperties do
   ## Example
 
       iex> Hubspot.ContactProperties.get("test")
-      %Hubspot.Request{endpoint: "/contacts/v2/properties/named/test",
+      %Hubspot.HTTP.Request{endpoint: "/contacts/v2/properties/named/test",
         method: :get, query: [], body: ""}
   """
-  @spec get(String.t) :: %Hubspot.Request{}
+  @spec get(String.t) :: %Hubspot.HTTP.Request{}
   def get(name) do
-    %Hubspot.Request{
+    %Hubspot.HTTP.Request{
       endpoint: "/contacts/v2/properties/named/#{name}",
       method: :get}
   end
@@ -50,13 +50,13 @@ defmodule Hubspot.ContactProperties do
 
   ## Example
 
-      iex> Hubspot.ContactProperties.create(["name": "test", "label": "New test", "type": "string"])
-      %Hubspot.Request{endpoint: "/contacts/v2/properties",
-        method: :post, query: [], body: ["name": "test", "label": "New test", "type": "string"]}
+      iex> Hubspot.ContactProperties.create([name: "test", label: "New test", type: "string"])
+      %Hubspot.HTTP.Request{endpoint: "/contacts/v2/properties",
+        method: :post, query: [], body: [name: "test", label: "New test", type: "string"]}
   """
-  @spec create(list) :: %Hubspot.Request{}
+  @spec create(list) :: %Hubspot.HTTP.Request{}
   def create(property) do
-    %Hubspot.Request{
+    %Hubspot.HTTP.Request{
       endpoint: "/contacts/v2/properties",
       method: :post,
       body: property}
@@ -71,13 +71,13 @@ defmodule Hubspot.ContactProperties do
 
   ## Example
 
-      iex> Hubspot.ContactProperties.update(["name": "test", "description": "Cool"])
-      %Hubspot.Request{endpoint: "/contacts/v2/properties/named/test",
-        method: :put, query: [], body: ["name": "test", "description": "Cool"]}
+      iex> Hubspot.ContactProperties.update([name: "test", description: "Cool"])
+      %Hubspot.HTTP.Request{endpoint: "/contacts/v2/properties/named/test",
+        method: :put, query: [], body: [name: "test", description: "Cool"]}
   """
-  @spec update(list) :: %Hubspot.Request{}
+  @spec update(list) :: %Hubspot.HTTP.Request{}
   def update(property) do
-    %Hubspot.Request{
+    %Hubspot.HTTP.Request{
       endpoint: "/contacts/v2/properties/named/#{property[:"name"]}",
       method: :put,
       body: property}
@@ -93,12 +93,12 @@ defmodule Hubspot.ContactProperties do
   ## Example
 
       iex> Hubspot.ContactProperties.delete("some_property")
-      %Hubspot.Request{endpoint: "/contacts/v2/properties/named/some_property",
+      %Hubspot.HTTP.Request{endpoint: "/contacts/v2/properties/named/some_property",
         method: :delete, query: [], body: ""}
   """
-  @spec delete(String.t) :: %Hubspot.Request{}
+  @spec delete(String.t) :: %Hubspot.HTTP.Request{}
   def delete(name) do
-    %Hubspot.Request{
+    %Hubspot.HTTP.Request{
       endpoint: "/contacts/v2/properties/named/#{name}",
       method: :delete}
   end
@@ -113,16 +113,16 @@ defmodule Hubspot.ContactProperties do
   ## Example
 
       iex> Hubspot.ContactProperties.get_groups
-      %Hubspot.Request{endpoint: "/contacts/v2/groups",
+      %Hubspot.HTTP.Request{endpoint: "/contacts/v2/groups",
         method: :get, query: ["includeProperties": false], body: ""}
 
-      iex> Hubspot.ContactProperties.get_groups(["includeProperties": true])
-      %Hubspot.Request{endpoint: "/contacts/v2/groups",
-        method: :get, query: ["includeProperties": true], body: ""}
+      iex> Hubspot.ContactProperties.get_groups([includeProperties: true])
+      %Hubspot.HTTP.Request{endpoint: "/contacts/v2/groups",
+        method: :get, query: [includeProperties: true], body: ""}
   """
-  @spec get_groups(list) :: %Hubspot.Request{}
+  @spec get_groups(list) :: %Hubspot.HTTP.Request{}
   def get_groups(include_properties \\ ["includeProperties": false]) do
-    %Hubspot.Request{
+    %Hubspot.HTTP.Request{
       endpoint: "/contacts/v2/groups",
       method: :get,
       query: include_properties}
@@ -138,13 +138,13 @@ defmodule Hubspot.ContactProperties do
 
   ## Example
 
-      iex> Hubspot.ContactProperties.create_group(["name": "some_group"])
-      %Hubspot.Request{endpoint: "/contacts/v2/groups",
-        method: :post, query: [], body: ["name": "some_group"]}
+      iex> Hubspot.ContactProperties.create_group([name: "some_group"])
+      %Hubspot.HTTP.Request{endpoint: "/contacts/v2/groups",
+        method: :post, query: [], body: [name: "some_group"]}
   """
-  @spec create_group(list) :: %Hubspot.Request{}
+  @spec create_group(list) :: %Hubspot.HTTP.Request{}
   def create_group(group) do
-    %Hubspot.Request{
+    %Hubspot.HTTP.Request{
       endpoint: "/contacts/v2/groups",
       method: :post,
       body: group}
@@ -159,13 +159,13 @@ defmodule Hubspot.ContactProperties do
 
   ## Example
 
-      iex> Hubspot.ContactProperties.update_group(["name": "some_group", "properties": ["type": "string"]])
-      %Hubspot.Request{endpoint: "/contacts/v2/groups/named/some_group",
-        method: :put, query: [], body: ["name": "some_group", "properties": ["type": "string"]]}
+      iex> Hubspot.ContactProperties.update_group([name: "some_group", properties: [type: "string"]])
+      %Hubspot.HTTP.Request{endpoint: "/contacts/v2/groups/named/some_group",
+        method: :put, query: [], body: [name: "some_group", properties: [type: "string"]]}
   """
-  @spec update_group(list) :: %Hubspot.Request{}
+  @spec update_group(list) :: %Hubspot.HTTP.Request{}
   def update_group(group) do
-    %Hubspot.Request{
+    %Hubspot.HTTP.Request{
       endpoint: "/contacts/v2/groups/named/#{group[:"name"]}",
       method: :put,
       body: group}
@@ -181,12 +181,12 @@ defmodule Hubspot.ContactProperties do
   ## Example
 
       iex> Hubspot.ContactProperties.delete_group("test_group")
-      %Hubspot.Request{endpoint: "/contacts/v2/groups/named/test_group",
+      %Hubspot.HTTP.Request{endpoint: "/contacts/v2/groups/named/test_group",
         method: :delete, query: [], body: ""}
   """
-  @spec delete_group(String.t) :: %Hubspot.Request{}
+  @spec delete_group(String.t) :: %Hubspot.HTTP.Request{}
   def delete_group(name) do
-    %Hubspot.Request{
+    %Hubspot.HTTP.Request{
       endpoint: "/contacts/v2/groups/named/#{name}",
       method: :delete}
   end

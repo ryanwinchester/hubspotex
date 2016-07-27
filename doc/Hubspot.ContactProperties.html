@@ -5,7 +5,7 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="generator" content="ExDoc v0.13.0">
-    <title>Hubspot.ContactProperties – hubspotex v0.0.2</title>
+    <title>Hubspot.ContactProperties – hubspotex v0.0.3</title>
     <link rel="stylesheet" href="dist/app-9c1e3d5aa2.css" />
     
       <link rel="canonical" href="https://hexdocs.pm/hubspotex/Hubspot.ContactProperties.html" />
@@ -28,7 +28,7 @@
         hubspotex
       </h1>
       <h2 class="sidebar-projectVersion">
-        v0.0.2
+        v0.0.3
       </h2>
     </div>
     
@@ -61,7 +61,7 @@
 
 
       <h1>
-        <small class="visible-xs">hubspotex v0.0.2</small>
+        <small class="visible-xs">hubspotex v0.0.3</small>
         Hubspot.ContactProperties
         
         
@@ -200,7 +200,7 @@
       <h4 class="specs-title">Specs</h4>
       <div class="specs-list">
         
-          <pre><code class="elixir">all :: %Hubspot.Request{body: term, endpoint: term, method: term, query: term}</code></pre>
+          <pre><code class="elixir">all :: %Hubspot.HTTP.Request{body: term, endpoint: term, method: term, query: term}</code></pre>
         
       </div>
     </div>
@@ -212,7 +212,7 @@ This endpoint will return all of the contacts properties, including their defini
 <p>see: <a href="http://developers.hubspot.com/docs/methods/contacts/v2/get_contacts_properties">http://developers.hubspot.com/docs/methods/contacts/v2/get_contacts_properties</a></p>
 <h2>Example</h2>
 <pre><code class="iex elixir">iex&gt; Hubspot.ContactProperties.all
-%Hubspot.Request{endpoint: &quot;/contacts/v2/properties&quot;,
+%Hubspot.HTTP.Request{endpoint: &quot;/contacts/v2/properties&quot;,
   method: :get, query: [], body: &quot;&quot;}</code></pre>
 
   </section>
@@ -231,7 +231,7 @@ This endpoint will return all of the contacts properties, including their defini
       <h4 class="specs-title">Specs</h4>
       <div class="specs-list">
         
-          <pre><code class="elixir">create(list) :: %Hubspot.Request{body: term, endpoint: term, method: term, query: term}</code></pre>
+          <pre><code class="elixir">create(list) :: %Hubspot.HTTP.Request{body: term, endpoint: term, method: term, query: term}</code></pre>
         
       </div>
     </div>
@@ -242,9 +242,9 @@ This endpoint will return all of the contacts properties, including their defini
 we want to store an invoice number on a separate field on deals.</p>
 <p>see: <a href="http://developers.hubspot.com/docs/methods/contacts/v2/create_contacts_property">http://developers.hubspot.com/docs/methods/contacts/v2/create_contacts_property</a></p>
 <h2>Example</h2>
-<pre><code class="iex elixir">iex&gt; Hubspot.ContactProperties.create([&quot;name&quot;: &quot;test&quot;, &quot;label&quot;: &quot;New test&quot;, &quot;type&quot;: &quot;string&quot;])
-%Hubspot.Request{endpoint: &quot;/contacts/v2/properties&quot;,
-  method: :post, query: [], body: [&quot;name&quot;: &quot;test&quot;, &quot;label&quot;: &quot;New test&quot;, &quot;type&quot;: &quot;string&quot;]}</code></pre>
+<pre><code class="iex elixir">iex&gt; Hubspot.ContactProperties.create([name: &quot;test&quot;, label: &quot;New test&quot;, type: &quot;string&quot;])
+%Hubspot.HTTP.Request{endpoint: &quot;/contacts/v2/properties&quot;,
+  method: :post, query: [], body: [name: &quot;test&quot;, label: &quot;New test&quot;, type: &quot;string&quot;]}</code></pre>
 
   </section>
 </div>
@@ -262,7 +262,7 @@ we want to store an invoice number on a separate field on deals.</p>
       <h4 class="specs-title">Specs</h4>
       <div class="specs-list">
         
-          <pre><code class="elixir">create_group(list) :: %Hubspot.Request{body: term, endpoint: term, method: term, query: term}</code></pre>
+          <pre><code class="elixir">create_group(list) :: %Hubspot.HTTP.Request{body: term, endpoint: term, method: term, query: term}</code></pre>
         
       </div>
     </div>
@@ -273,9 +273,9 @@ we want to store an invoice number on a separate field on deals.</p>
 easily manage properties in a given portal and make contact records easier to parse for the user.</p>
 <p>see: <a href="http://developers.hubspot.com/docs/methods/contacts/v2/create_contacts_property_group">http://developers.hubspot.com/docs/methods/contacts/v2/create_contacts_property_group</a></p>
 <h2>Example</h2>
-<pre><code class="iex elixir">iex&gt; Hubspot.ContactProperties.create_group([&quot;name&quot;: &quot;some_group&quot;])
-%Hubspot.Request{endpoint: &quot;/contacts/v2/groups&quot;,
-  method: :post, query: [], body: [&quot;name&quot;: &quot;some_group&quot;]}</code></pre>
+<pre><code class="iex elixir">iex&gt; Hubspot.ContactProperties.create_group([name: &quot;some_group&quot;])
+%Hubspot.HTTP.Request{endpoint: &quot;/contacts/v2/groups&quot;,
+  method: :post, query: [], body: [name: &quot;some_group&quot;]}</code></pre>
 
   </section>
 </div>
@@ -293,7 +293,7 @@ easily manage properties in a given portal and make contact records easier to pa
       <h4 class="specs-title">Specs</h4>
       <div class="specs-list">
         
-          <pre><code class="elixir">delete(<a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>) :: %Hubspot.Request{body: term, endpoint: term, method: term, query: term}</code></pre>
+          <pre><code class="elixir">delete(<a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>) :: %Hubspot.HTTP.Request{body: term, endpoint: term, method: term, query: term}</code></pre>
         
       </div>
     </div>
@@ -304,7 +304,7 @@ easily manage properties in a given portal and make contact records easier to pa
 <p>see: <a href="http://developers.hubspot.com/docs/methods/contacts/v2/delete_contact_property">http://developers.hubspot.com/docs/methods/contacts/v2/delete_contact_property</a></p>
 <h2>Example</h2>
 <pre><code class="iex elixir">iex&gt; Hubspot.ContactProperties.delete(&quot;some_property&quot;)
-%Hubspot.Request{endpoint: &quot;/contacts/v2/properties/named/some_property&quot;,
+%Hubspot.HTTP.Request{endpoint: &quot;/contacts/v2/properties/named/some_property&quot;,
   method: :delete, query: [], body: &quot;&quot;}</code></pre>
 
   </section>
@@ -323,7 +323,7 @@ easily manage properties in a given portal and make contact records easier to pa
       <h4 class="specs-title">Specs</h4>
       <div class="specs-list">
         
-          <pre><code class="elixir">delete_group(<a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>) :: %Hubspot.Request{body: term, endpoint: term, method: term, query: term}</code></pre>
+          <pre><code class="elixir">delete_group(<a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>) :: %Hubspot.HTTP.Request{body: term, endpoint: term, method: term, query: term}</code></pre>
         
       </div>
     </div>
@@ -334,7 +334,7 @@ easily manage properties in a given portal and make contact records easier to pa
 <p>see: <a href="http://developers.hubspot.com/docs/methods/contacts/v2/delete_contact_property_group">http://developers.hubspot.com/docs/methods/contacts/v2/delete_contact_property_group</a></p>
 <h2>Example</h2>
 <pre><code class="iex elixir">iex&gt; Hubspot.ContactProperties.delete_group(&quot;test_group&quot;)
-%Hubspot.Request{endpoint: &quot;/contacts/v2/groups/named/test_group&quot;,
+%Hubspot.HTTP.Request{endpoint: &quot;/contacts/v2/groups/named/test_group&quot;,
   method: :delete, query: [], body: &quot;&quot;}</code></pre>
 
   </section>
@@ -353,7 +353,7 @@ easily manage properties in a given portal and make contact records easier to pa
       <h4 class="specs-title">Specs</h4>
       <div class="specs-list">
         
-          <pre><code class="elixir">get(<a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>) :: %Hubspot.Request{body: term, endpoint: term, method: term, query: term}</code></pre>
+          <pre><code class="elixir">get(<a href="http://elixir-lang.org/docs/stable/elixir/String.html#t:t/0">String.t</a>) :: %Hubspot.HTTP.Request{body: term, endpoint: term, method: term, query: term}</code></pre>
         
       </div>
     </div>
@@ -364,7 +364,7 @@ easily manage properties in a given portal and make contact records easier to pa
 <p>see: <a href="http://developers.hubspot.com/docs/methods/companies/get_contact_property">http://developers.hubspot.com/docs/methods/companies/get_contact_property</a></p>
 <h2>Example</h2>
 <pre><code class="iex elixir">iex&gt; Hubspot.ContactProperties.get(&quot;test&quot;)
-%Hubspot.Request{endpoint: &quot;/contacts/v2/properties/named/test&quot;,
+%Hubspot.HTTP.Request{endpoint: &quot;/contacts/v2/properties/named/test&quot;,
   method: :get, query: [], body: &quot;&quot;}</code></pre>
 
   </section>
@@ -383,7 +383,7 @@ easily manage properties in a given portal and make contact records easier to pa
       <h4 class="specs-title">Specs</h4>
       <div class="specs-list">
         
-          <pre><code class="elixir">get_groups(list) :: %Hubspot.Request{body: term, endpoint: term, method: term, query: term}</code></pre>
+          <pre><code class="elixir">get_groups(list) :: %Hubspot.HTTP.Request{body: term, endpoint: term, method: term, query: term}</code></pre>
         
       </div>
     </div>
@@ -394,12 +394,12 @@ easily manage properties in a given portal and make contact records easier to pa
 <p>see: <a href="http://developers.hubspot.com/docs/methods/contacts/v2/get_contact_property_groups">http://developers.hubspot.com/docs/methods/contacts/v2/get_contact_property_groups</a></p>
 <h2>Example</h2>
 <pre><code class="iex elixir">iex&gt; Hubspot.ContactProperties.get_groups
-%Hubspot.Request{endpoint: &quot;/contacts/v2/groups&quot;,
+%Hubspot.HTTP.Request{endpoint: &quot;/contacts/v2/groups&quot;,
   method: :get, query: [&quot;includeProperties&quot;: false], body: &quot;&quot;}
 
-iex&gt; Hubspot.ContactProperties.get_groups([&quot;includeProperties&quot;: true])
-%Hubspot.Request{endpoint: &quot;/contacts/v2/groups&quot;,
-  method: :get, query: [&quot;includeProperties&quot;: true], body: &quot;&quot;}</code></pre>
+iex&gt; Hubspot.ContactProperties.get_groups([includeProperties: true])
+%Hubspot.HTTP.Request{endpoint: &quot;/contacts/v2/groups&quot;,
+  method: :get, query: [includeProperties: true], body: &quot;&quot;}</code></pre>
 
   </section>
 </div>
@@ -417,7 +417,7 @@ iex&gt; Hubspot.ContactProperties.get_groups([&quot;includeProperties&quot;: tru
       <h4 class="specs-title">Specs</h4>
       <div class="specs-list">
         
-          <pre><code class="elixir">update(list) :: %Hubspot.Request{body: term, endpoint: term, method: term, query: term}</code></pre>
+          <pre><code class="elixir">update(list) :: %Hubspot.HTTP.Request{body: term, endpoint: term, method: term, query: term}</code></pre>
         
       </div>
     </div>
@@ -427,9 +427,9 @@ iex&gt; Hubspot.ContactProperties.get_groups([&quot;includeProperties&quot;: tru
 <p>Update a specified contact property.</p>
 <p>see: <a href="http://developers.hubspot.com/docs/methods/contacts/v2/update_contact_property">http://developers.hubspot.com/docs/methods/contacts/v2/update_contact_property</a></p>
 <h2>Example</h2>
-<pre><code class="iex elixir">iex&gt; Hubspot.ContactProperties.update([&quot;name&quot;: &quot;test&quot;, &quot;description&quot;: &quot;Cool&quot;])
-%Hubspot.Request{endpoint: &quot;/contacts/v2/properties/named/test&quot;,
-  method: :put, query: [], body: [&quot;name&quot;: &quot;test&quot;, &quot;description&quot;: &quot;Cool&quot;]}</code></pre>
+<pre><code class="iex elixir">iex&gt; Hubspot.ContactProperties.update([name: &quot;test&quot;, description: &quot;Cool&quot;])
+%Hubspot.HTTP.Request{endpoint: &quot;/contacts/v2/properties/named/test&quot;,
+  method: :put, query: [], body: [name: &quot;test&quot;, description: &quot;Cool&quot;]}</code></pre>
 
   </section>
 </div>
@@ -447,7 +447,7 @@ iex&gt; Hubspot.ContactProperties.get_groups([&quot;includeProperties&quot;: tru
       <h4 class="specs-title">Specs</h4>
       <div class="specs-list">
         
-          <pre><code class="elixir">update_group(list) :: %Hubspot.Request{body: term, endpoint: term, method: term, query: term}</code></pre>
+          <pre><code class="elixir">update_group(list) :: %Hubspot.HTTP.Request{body: term, endpoint: term, method: term, query: term}</code></pre>
         
       </div>
     </div>
@@ -457,9 +457,9 @@ iex&gt; Hubspot.ContactProperties.get_groups([&quot;includeProperties&quot;: tru
 <p>Update a previously created contact property group.</p>
 <p>see: <a href="http://developers.hubspot.com/docs/methods/contacts/v2/update_contact_property_group">http://developers.hubspot.com/docs/methods/contacts/v2/update_contact_property_group</a></p>
 <h2>Example</h2>
-<pre><code class="iex elixir">iex&gt; Hubspot.ContactProperties.update_group([&quot;name&quot;: &quot;some_group&quot;, &quot;properties&quot;: [&quot;type&quot;: &quot;string&quot;]])
-%Hubspot.Request{endpoint: &quot;/contacts/v2/groups/named/some_group&quot;,
-  method: :put, query: [], body: [&quot;name&quot;: &quot;some_group&quot;, &quot;properties&quot;: [&quot;type&quot;: &quot;string&quot;]]}</code></pre>
+<pre><code class="iex elixir">iex&gt; Hubspot.ContactProperties.update_group([name: &quot;some_group&quot;, properties: [type: &quot;string&quot;]])
+%Hubspot.HTTP.Request{endpoint: &quot;/contacts/v2/groups/named/some_group&quot;,
+  method: :put, query: [], body: [name: &quot;some_group&quot;, properties: [type: &quot;string&quot;]]}</code></pre>
 
   </section>
 </div>

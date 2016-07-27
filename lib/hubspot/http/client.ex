@@ -1,6 +1,11 @@
 defmodule Hubspot.HTTP.Client do
   use HTTPoison.Base
 
+  @url Application.get_env(:hubspotex, :base_url)
+
+  @auth {Application.get_env(:hubspotex, :auth_method),
+         Application.get_env(:hubspotex, :auth_key)}
+
   @doc """
   Issues an HTTP request with the given method to the given url.
 
@@ -21,8 +26,13 @@ defmodule Hubspot.HTTP.Client do
           request(:post, "https://my.website.com", "{\"foo\": 3}", [{"Accept", "application/json"}])
   """
   def request(method, url, headers, body, params) do
-    options = params |> process_request_options
+    options = params |> add_auth |> process_request_options
     super(method, url, headers, body, options)
+  end
+
+  defp process_url(url = "http" <> _), do: url
+  defp process_url(endpoint) do
+    @url <> endpoint
   end
 
   defp process_request_options([]), do: []
@@ -37,4 +47,6 @@ defmodule Hubspot.HTTP.Client do
   defp process_response_body(body) do
     body |> Poison.decode
   end
+
+  defp add_auth(query), do: [@auth | query]
 end

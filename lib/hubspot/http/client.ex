@@ -25,9 +25,13 @@ defmodule Hubspot.HTTP.Client do
   ## Examples
           request(:post, "https://my.website.com", "{\"foo\": 3}", [{"Accept", "application/json"}])
   """
-  def request(method, url, headers, body, params) do
+  def request(method, url, body \\ "", headers \\ [], params \\ []) do
     options = params |> add_auth |> process_request_options
-    super(method, url, headers, body, options)
+    super(method, url, body, headers, options)
+  end
+
+  defp add_auth(query) do
+    [@auth | query]
   end
 
   defp process_url(url = "http" <> _), do: url
@@ -47,6 +51,4 @@ defmodule Hubspot.HTTP.Client do
   defp process_response_body(body) do
     body |> Poison.decode
   end
-
-  defp add_auth(query), do: [@auth | query]
 end

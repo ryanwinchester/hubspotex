@@ -39,6 +39,7 @@ defmodule Hubspot.HTTP.Client do
   end
 
   defp process_request_options([]), do: []
+  defp process_request_options([params: _]=options), do: options
   defp process_request_options(params) do
     [params: params]
   end

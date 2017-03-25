@@ -9,7 +9,7 @@ defmodule Hubspot.Mixfile do
      start_permanent: Mix.env == :prod,
      description: description(),
      package: package(),
-     deps: deps]
+     deps: deps()]
   end
 
   # Configuration for the OTP application

@@ -50,6 +50,6 @@ defmodule Hubspot.HTTP.Client do
   end
 
   defp process_response_body(body) do
-    body |> Poison.decode
+    body |> Poison.decode!
   end
 end

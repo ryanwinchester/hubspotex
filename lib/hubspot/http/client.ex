@@ -46,7 +46,7 @@ defmodule Hubspot.HTTP.Client do
 
   defp process_request_body(""), do: ""
   defp process_request_body(body) do
-    body |> Poison.Encoder.encode("")
+    body |> Poison.encode!
   end
 
   defp process_response_body(""), do: nil

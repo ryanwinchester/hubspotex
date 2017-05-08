@@ -1,9 +1,7 @@
 defmodule Hubspot.HTTP.Client do
   use HTTPoison.Base
 
-  @base_url Application.get_env(:hubspotex, :base_url)
-  @auth_method Application.get_env(:hubspotex, :auth_method)
-  @auth_key Application.get_env(:hubspotex, :auth_key)
+  import Application, only: [get_env: 2]
 
   @doc """
   Issues an HTTP request with the given method to the given url.
@@ -30,12 +28,12 @@ defmodule Hubspot.HTTP.Client do
   end
 
   defp add_auth(query) do
-    [{@auth_method, @auth_key} | query]
+    [{get_env(:hubspotex, :auth_method), get_env(:hubspotex, :auth_key)} | query]
   end
 
   defp process_url(url = "http" <> _), do: url
   defp process_url(endpoint) do
-    @base_url <> endpoint
+    get_env(:hubspotex, :base_url) <> endpoint
   end
 
   defp process_request_options([]), do: []

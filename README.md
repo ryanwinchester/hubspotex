@@ -31,6 +31,6 @@ If [available in Hex](https://hex.pm/docs/publish), the package can be installed
 
   ```elixir
   def deps do
-    [{:hubspotex, "~> 0.0.6"}]
+    [{:hubspotex, "~> 0.0.7"}]
   end
   ```

@@ -1,8 +1,6 @@
 defmodule Hubspot.HTTP.Client do
   use HTTPoison.Base
 
-  import Application, only: [get_env: 2]
-
   @doc """
   Issues an HTTP request with the given method to the given url.
 

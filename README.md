@@ -28,9 +28,16 @@ Hubspot.Contacts.all([count: 10, vidOffset: 100]) |> Hubspot.request
 If [available in Hex](https://hex.pm/docs/publish), the package can be installed as:
 
   1. Add hubspotex to your list of dependencies in `mix.exs`:
-
   ```elixir
   def deps do
     [{:hubspotex, "~> 0.0.6"}]
   end
+  ```
+
+  2. Configure environment variables:
+  ```elixir
+  config :hubspotex,
+    auth_key: "YOUR_API_KEY",
+    base_url: "https://api.hubapi.com",
+    auth_method: "hapikey"
   ```

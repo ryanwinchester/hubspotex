@@ -29,7 +29,7 @@ defmodule Hubspot.HTTP.Client do
 
   def process_url(url = "http" <> _), do: url
   def process_url(endpoint) do
-    get_env(:hubspotex, :base_url) <> endpoint
+    Application.get_env(:hubspotex, :base_url) <> endpoint
   end
 
   def process_request_options([]), do: []

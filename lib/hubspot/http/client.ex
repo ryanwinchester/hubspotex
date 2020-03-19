@@ -33,7 +33,7 @@ defmodule Hubspot.HTTP.Client do
   end
 
   def process_request_options([]), do: []
-  def process_request_options([params: _]=options), do: options
+  def process_request_options([params: _] = options), do: options
   def process_request_options(params) do
     [params: params]
   end
@@ -49,6 +49,6 @@ defmodule Hubspot.HTTP.Client do
   end
 
   defp add_auth(query) do
-    [{get_env(:hubspotex, :auth_method), get_env(:hubspotex, :auth_key)} | query]
+    [{Application.get_env(:hubspotex, :auth_method), Application.get_env(:hubspotex, :auth_key)} | query]
   end
 end

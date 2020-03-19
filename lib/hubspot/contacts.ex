@@ -10,7 +10,7 @@ defmodule Hubspot.Contacts do
 
       iex> Hubspot.Contacts.all([count: 10, vidOffset: 100])
       %Hubspot.HTTP.Request{endpoint: "/contacts/v1/lists/all/contacts/all",
-        method: :get, query: ["count": 10, "vidOffset": 100], body: ""}
+        method: :get, query: [count: 10, vidOffset: 100], body: ""}
   """
   @spec all(list) :: %Hubspot.HTTP.Request{}
   def all(params \\ []) do

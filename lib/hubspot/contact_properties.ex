@@ -78,7 +78,7 @@ defmodule Hubspot.ContactProperties do
   @spec update(list) :: %Hubspot.HTTP.Request{}
   def update(property) do
     %Hubspot.HTTP.Request{
-      endpoint: "/contacts/v2/properties/named/#{property[:"name"]}",
+      endpoint: "/contacts/v2/properties/named/#{property[:name]}",
       method: :put,
       body: property}
   end
@@ -114,14 +114,14 @@ defmodule Hubspot.ContactProperties do
 
       iex> Hubspot.ContactProperties.get_groups
       %Hubspot.HTTP.Request{endpoint: "/contacts/v2/groups",
-        method: :get, query: ["includeProperties": false], body: ""}
+        method: :get, query: [includeProperties: false], body: ""}
 
       iex> Hubspot.ContactProperties.get_groups([includeProperties: true])
       %Hubspot.HTTP.Request{endpoint: "/contacts/v2/groups",
         method: :get, query: [includeProperties: true], body: ""}
   """
   @spec get_groups(list) :: %Hubspot.HTTP.Request{}
-  def get_groups(include_properties \\ ["includeProperties": false]) do
+  def get_groups(include_properties \\ [includeProperties: false]) do
     %Hubspot.HTTP.Request{
       endpoint: "/contacts/v2/groups",
       method: :get,
@@ -166,7 +166,7 @@ defmodule Hubspot.ContactProperties do
   @spec update_group(list) :: %Hubspot.HTTP.Request{}
   def update_group(group) do
     %Hubspot.HTTP.Request{
-      endpoint: "/contacts/v2/groups/named/#{group[:"name"]}",
+      endpoint: "/contacts/v2/groups/named/#{group[:name]}",
       method: :put,
       body: group}
   end

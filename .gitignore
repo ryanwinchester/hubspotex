@@ -6,3 +6,5 @@
 erl_crash.dump
 *.ez
 .tool-versions
+*.iml
+/.idea

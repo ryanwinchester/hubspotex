@@ -3,7 +3,7 @@ defmodule Hubspot.Mixfile do
 
   def project do
     [app: :hubspotex,
-     version: "0.0.6",
+     version: "0.0.7",
      elixir: "~> 1.2",
      build_embedded: Mix.env == :prod,
      start_permanent: Mix.env == :prod,
@@ -29,8 +29,8 @@ defmodule Hubspot.Mixfile do
   #
   # Type "mix help deps" for more examples and options
   defp deps do
-    [{:httpoison, "~> 0.9.0"},
-     {:poison, "~> 2.0"},
+    [{:httpoison, "~> 1.5"},
+     {:jason, "~> 1.1"},
      {:ex_doc, ">= 0.0.0", only: :dev}]
   end
 
